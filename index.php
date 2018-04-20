@@ -28,7 +28,7 @@ session_start();
   <div class="centered-right"><button class="btn success" onclick="document.getElementById('lgn-mdl').style.display='block'">Login</button></div>
 </div>
 
-
+smit
 
 
 <!-- The Modal -->
