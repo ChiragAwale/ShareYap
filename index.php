@@ -19,9 +19,10 @@ session_start();
 
 
 
+
 <div class="container">
   <img  class = "image" src="images/background.jpg">
-  <div class="top-left"><h1>Share Your Appartment</h1></div>
+  <div class="top-left"><h1>ShareYap</h1></div>
   <div class="centered-left"><button class="btn success">Sign up</button></div>
 
   <div class="centered-right"><button class="btn success" onclick="document.getElementById('lgn-mdl').style.display='block'">Login</button></div>
