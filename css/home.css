@@ -91,8 +91,8 @@ body {
 /*Mid column*/
 .midcolumn {   
     float: left;
-    width: 74%;
-    padding-left: 290px;
+    width: 50%;
+    padding-left: 20px;
 
 
 }
