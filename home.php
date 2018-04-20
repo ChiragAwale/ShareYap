@@ -7,7 +7,7 @@ session_start();
 <html>
 <head>
 	<link href="css/home.css" rel='stylesheet' type='text/css'>
-  <script src = "home.js"></script>
+ 
 
 
  
@@ -28,12 +28,17 @@ $_SESSION["username"] = $_POST["uname"];
 }else{
   die("Direct Access Forbidden");
 }
+if(isset($_POST["search2"])){
+  echo "DONE".$_POST["search2"];
+}
+
 ?>
 
 
 <!-- Nav Bar -->
 <div class="header">
-  <h1>Share Your Apartment</h1>
+  <h1>ShareYap</h1>
+  <h4>Share your appartment</h4>
   <span style="float: right;">Welcome, 
     <?php 
     echo $_SESSION["username"];
@@ -48,6 +53,16 @@ $_SESSION["username"] = $_POST["uname"];
 </div>
 
 
+<!-- Search Bar -->
+
+<div style="margin-top: 5px;">
+<form class="search" action="home.php" style="margin:auto;max-width:300px" method="post">
+  <input type="text" placeholder="Search.." name="search2">
+  <button id = 'search-btn' type="submit">Go</button>
+</form>
+</div>
+
+
 
 
 <div class="row">
@@ -56,7 +71,7 @@ $_SESSION["username"] = $_POST["uname"];
    
  <!-- Php for main content  -->
     <?php 
-
+      
       include 'content.php';
       include 'db.php';
       $apt = new Appartment();
@@ -89,7 +104,7 @@ $_SESSION["username"] = $_POST["uname"];
           echo "0 results";
       }
       $conn->close();
-       
+      
     ?>
 
 
@@ -117,6 +132,9 @@ $_SESSION["username"] = $_POST["uname"];
 </div>
 
 
+ <script src = "js/home.js"></script>
 
+
+ </script>
 </body>
 </html>
