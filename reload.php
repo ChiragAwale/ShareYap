@@ -1,36 +1,44 @@
 <?php
-function reload(){
-      include 'content.php';
-      include 'db.php';
-      $apt = new Appartment();
 
+   class Model
+{
+    public $string;
 
+    public function __construct(){
+        $this->string = 'MVC + PHP = Awesome, click here!';
+    }
 
-      $sql = "SELECT street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry from apartment";
-      $result = $conn->query($sql);
+}
+?>
+<?php
 
-      if ($result->num_rows > 0) {
-          // output data of each row
-          while($row = $result->fetch_assoc()) {
-          
-              echo '<div class="card-main">
-              <h2 >< Heading ></h2>
-              <h5>'.$row["street"].', '.$row["city"].', '.$row["state"].', '.$row["zip"].'</h5>
-               <img style="height:250px; width: 350px;" src = "'.$apt->img.'">
-              <p><strong>Description</strong></p>
-              <div> Price:  '.$row["price"].'</div>
-              <div> Rating:  '.$row["rating"].'</div>
-              <div> No of Bed/Baths:  '.$row["noofbedroom"].'/'.$row["noofbaths"].'</div>
-              <div> Gender Looking for:  '.$row["gender"].'</div>
-              <div> Pets:  '.$row["pets"].'</div>
-              <div> Laundry:  '.$row["laundry"].'</div>
-              <p></p>
-               </div>';
+class View
+{
+    private $model;
+    private $controller;
 
-        }
-      } else {
-          echo "0 results";
-      }
-      $conn->close();
-      }
-      ?>
+    public function __construct($controller,$model) {
+        $this->controller = $controller;
+        $this->model = $model;
+    }
+
+    public function output() {
+        return '<p><a href="mvc.php?action=clicked"' . $this->model->string . "</a></p>";
+    }
+}
+?>
+<?php
+
+class Controller
+{
+    private $model;
+
+    public function __construct($model){
+        $this->model = $model;
+    }
+
+    public function clicked() {
+        $this->model->string = 'Updated Data, thanks to MVC and PHP!';
+    }
+}
+?>
