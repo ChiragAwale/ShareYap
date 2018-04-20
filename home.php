@@ -8,9 +8,55 @@ session_start();
 <head>
 	<link href="css/home.css" rel='stylesheet' type='text/css'>
  
+<script language = "javascript" type = "text/javascript">
+         
+            //Browser Support Code
+            function ajaxFunction(){
+               var ajaxRequest;  // The variable that makes Ajax possible!
+               
+               try {
+                  // Opera 8.0+, Firefox, Safari
+                  ajaxRequest = new XMLHttpRequest();
+               }catch (e) {
+                  // Internet Explorer Browsers
+                  try {
+                     ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+                  }catch (e) {
+                     try{
+                        ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+                     }catch (e){
+                        // Something went wrong
+                        alert("Your browser broke!");
+                        return false;
+                     }
+                  }
+               }
+               
+               // Create a function that will receive data 
+               // sent from the server and will update
+               // div section in the same page.
+          
+               ajaxRequest.onreadystatechange = function(){
+                  if(ajaxRequest.readyState == 4){
+                     var ajaxDisplay = document.getElementById('ajaxDiv');
+                     ajaxDisplay.innerHTML = ajaxRequest.responseText;
+                  }
+               }
+               
+               // Now get the value from user and pass it to
+               // server script.
+          
+               var zip = document.getElementById('zip').value;
+               
+               var queryString = "?zip=" + zip ;
+            
+               
+               ajaxRequest.open("GET", "feed.php" + queryString, true);
+               ajaxRequest.send(null); 
+            }
+         //-->
+      </script>
 
-
- 
 </head>
 
 
@@ -57,9 +103,9 @@ if(isset($_POST["search2"])){
 <!-- Search Bar -->
 
 <div style="margin-top: 5px;">
-<form class="search" action="home.php" style="margin:auto;max-width:500px" method="post">
-  <input type="text" placeholder="Search.." name="search2">
-  <button id = 'search-btn' type="submit">Go</button>
+<form class="search" action="home.php" style="margin:auto;max-width:500px">
+  <input id = "zip" type="text" placeholder="Search.." name="search2">
+  <input style="font-size: 35px;" type = 'button' onclick = 'ajaxFunction()' value = 'Go'/>
 </form>
 </div>
 
@@ -96,45 +142,16 @@ if(isset($_POST["search2"])){
     </div>
   </div>
   	
-  <div class="midcolumn">
+  <div class="midcolumn" >
    
- <!-- Php for main content  -->
-    <?php 
-      
-      include 'content.php';
-      include 'db.php';
-      $apt = new Appartment();
+ <!--= main content  -->
+    <div id = 'ajaxDiv'>
+      <?php
+        include 'feed.php';
 
+      ?>
 
-
-      $sql = "SELECT street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry from apartment";
-      $result = $conn->query($sql);
-
-      if ($result->num_rows > 0) {
-          // output data of each row
-          while($row = $result->fetch_assoc()) {
-          
-              echo '<div class="card-main">
-              <h2 >< Heading ></h2>
-              <h5>'.$row["street"].', '.$row["city"].', '.$row["state"].', '.$row["zip"].'</h5>
-               <img style="height:250px; width: 350px;" src = "'.$apt->img.'">
-              <p><strong>Description</strong></p>
-              <div> Price:  '.$row["price"].'</div>
-              <div> Rating:  '.$row["rating"].'</div>
-              <div> No of Bed/Baths:  '.$row["noofbedroom"].'/'.$row["noofbaths"].'</div>
-              <div> Gender Looking for:  '.$row["gender"].'</div>
-              <div> Pets:  '.$row["pets"].'</div>
-              <div> Laundry:  '.$row["laundry"].'</div>
-              <p></p>
-               </div>';
-
-        }
-      } else {
-          echo "0 results";
-      }
-      $conn->close();
-      
-    ?>
+    </div>
 
 
   </div>
