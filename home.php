@@ -75,12 +75,23 @@ if(isset($_POST["search2"])){
       <div class="slidecontainer">
       <input type="range" min="1" max="4900" value="1" class="slider" id="myRange1">
       </div>
-      <p>Min Value: <span id="demo1"></span></p>
+      <p>Min Price: <span id="demo1"></span></p>
 
       <div class="slidecontainer">
       <input type="range" min="100" max="5000" value="100" class="slider" id="myRange2">
       </div>
-      <p>Max Value: <span id="demo2"></span></p>      
+      <p>Max Price: <span id="demo2"></span></p>  
+      
+      
+      <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Number of bedrooms</button>
+        <div id="myDropdown" class="dropdown-content">
+        <a href="#">1 Bedroom</a>
+        <a href="#">2 Bedroom</a>
+        <a href="#">3 Bedroom</a>
+        <a href="#">4 Bedroom+</a>
+        </div>
+      </div>    
     </div>
   </div>
   	
