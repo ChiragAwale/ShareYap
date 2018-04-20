@@ -23,8 +23,9 @@ if(!$_SESSION["from-login"]){
   die("Direct Access Forbidden");
 }
 // Set session variables
+if(isset($_POST["uname"])){
 $_SESSION["username"] = $_POST["uname"];
-
+}
 }else{
   die("Direct Access Forbidden");
 }
@@ -56,7 +57,7 @@ if(isset($_POST["search2"])){
 <!-- Search Bar -->
 
 <div style="margin-top: 5px;">
-<form class="search" action="home.php" style="margin:auto;max-width:300px" method="post">
+<form class="search" action="home.php" style="margin:auto;max-width:500px" method="post">
   <input type="text" placeholder="Search.." name="search2">
   <button id = 'search-btn' type="submit">Go</button>
 </form>
