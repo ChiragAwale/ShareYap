@@ -14,41 +14,20 @@ if ($conn->connect_error) {
 } 
 
 
-// if(isset($_GET['zip'])){
-//   $zip = $_GET['zip'];
-// }else{
-//   $zip = null;
-// }
-
-
-// if(is_null($zip) or $zip == 0){
-//$sql = "SELECT  heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry from apartment";
-// }else{
-//   $sql = "SELECT heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry from apartment where zip ='$zip'";
-// }
-
-$zip = $_GET['zip'];
-$maxRange = $_GET['maxRange'];
-$minRange = $_GET['minRange'];
-
-
-
-//build query
-$query = "SELECT  heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike from apartment";
-
-if(is_numeric($zip) or is_numeric($minRange) or is_numeric($maxRange)){
-  $query .= " WHERE ";
+if(isset($_GET['zip'])){
+  $zip = $_GET['zip'];
+}else{
+  $zip = null;
 }
 
 
-if(is_numeric($zip))
- $query .= " zip = $zip";
+if(is_null($zip) or $zip == 0){
+$sql = "SELECT  heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry from apartment";
+}else{
+  $sql = "SELECT heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry from apartment where zip ='$zip'";
+}
 
-if(is_numeric($minRange))
- $query .= " AND ( price >= $minRange";
 
-if(is_numeric($maxRange))
- $query .= " AND price <= $maxRange) ";
 
 
 $result = $conn->query($query);
