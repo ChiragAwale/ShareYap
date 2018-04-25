@@ -14,16 +14,24 @@ if ($conn->connect_error) {
 } 
 
 
-      if(isset($_GET['zip'])){
+      // if(isset($_GET['zip'])){
+      //   $zip = $_GET['zip'];
+      // }else{
+      //   $zip = null;
+      // }
+
+
+      // if(is_null($zip) or $zip == 0){
+      // $sql = "SELECT  heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry from apartment";
+      // }else{
+      //   $sql = "SELECT heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry from apartment where zip ='$zip'";
+      // }
+
       $zip = $_GET['zip'];
-      }else{
-        $zip = null;
-      }
-      if(is_null($zip) or $zip == 0){
-      $sql = "SELECT street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry from apartment";
-      }else{
-        $sql = "SELECT street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry from apartment where zip ='$zip'";
-      }
+      $maxRange = $_GET['maxRange'];
+      $minRange = $_GET['minRange'];
+
+
       $result = $conn->query($sql);
 
       if ($result->num_rows > 0) {
@@ -31,7 +39,7 @@ if ($conn->connect_error) {
           while($row = $result->fetch_assoc()) {
           
               echo '<div class="card-main">
-              <h2 >< Heading ></h2>
+              <h2> '.$row["heading"].'</h2>
               <h5>'.$row["street"].', '.$row["city"].', '.$row["state"].', '.$row["zip"].'</h5>
                <img style="height:250px; width: 350px;" src = "images/bedroom-1.jpg">
               <p><strong>Description</strong></p>

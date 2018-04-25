@@ -45,12 +45,14 @@ session_start();
                
                // Now get the value from user and pass it to
                // server script.
-          
+
+
                var zip = document.getElementById('zip').value;
-               
+               var minRange = document.getElementById('minRange').value;
+               var maxRange = document.getElementById('maxRange').value;
                var queryString = "?zip=" + zip ;
             
-               
+               queryString +=  "&minRange=" + minRange + "&maxRange=" + maxRange;
                ajaxRequest.open("GET", "feed.php" + queryString, true);
                ajaxRequest.send(null); 
             }
@@ -63,6 +65,8 @@ session_start();
 <body>
 <?php
 
+
+//Checks where the user entered this site from 
 if (isset($_SESSION['from-login']) )
 {
 if(!$_SESSION["from-login"]){
@@ -104,8 +108,8 @@ if(isset($_POST["search2"])){
 
 <div style="margin-top: 5px;">
 <form class="search" action="home.php" style="margin:auto;max-width:500px">
-  <input id = "zip" type="text" placeholder="Search.." name="search2">
-  <input style="font-size: 35px;" type = 'button' onclick = 'ajaxFunction()' value = 'Go'/>
+  <input id = "zip" type="text" placeholder="Enter ZIP.." name="search2">
+  <button style="font-size: 35px;" type = 'button' onclick = 'ajaxFunction()' > GO </button>
 </form>
 </div>
 
@@ -120,12 +124,12 @@ if(isset($_POST["search2"])){
       <h5>Price range</h5>
       
       <div class="slidecontainer">
-      <input type="range" min="1" max="4900" value="1" class="slider" id="myRange1">
+      <input type="range" min="1" max="4900" value="1" class="slider" id="minRange">
       </div>
       <p>Min Price: <span id="demo1"></span></p>
 
       <div class="slidecontainer">
-      <input type="range" min="100" max="5000" value="100" class="slider" id="myRange2">
+      <input type="range" min="100" max="5000" value="100" class="slider" id="maxRange">
       </div>
       <p>Max Price: <span id="demo2"></span></p>  
       
@@ -148,7 +152,6 @@ if(isset($_POST["search2"])){
     <div id = 'ajaxDiv'>
       <?php
         include 'feed.php';
-
       ?>
 
     </div>
