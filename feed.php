@@ -14,18 +14,18 @@ if ($conn->connect_error) {
 } 
 
 
-      // if(isset($_GET['zip'])){
-      //   $zip = $_GET['zip'];
-      // }else{
-      //   $zip = null;
-      // }
+// if(isset($_GET['zip'])){
+//   $zip = $_GET['zip'];
+// }else{
+//   $zip = null;
+// }
 
 
-      // if(is_null($zip) or $zip == 0){
-      //$sql = "SELECT  heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry from apartment";
-      // }else{
-      //   $sql = "SELECT heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry from apartment where zip ='$zip'";
-      // }
+// if(is_null($zip) or $zip == 0){
+//$sql = "SELECT  heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry from apartment";
+// }else{
+//   $sql = "SELECT heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry from apartment where zip ='$zip'";
+// }
 
 $zip = $_GET['zip'];
 $maxRange = $_GET['maxRange'];
@@ -34,7 +34,7 @@ $minRange = $_GET['minRange'];
 
 
 //build query
-$query = "SELECT  heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes from apartment";
+$query = "SELECT  heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike from apartment";
 
 if(is_numeric($zip) or is_numeric($minRange) or is_numeric($maxRange)){
   $query .= " WHERE ";
@@ -61,6 +61,11 @@ if ($result->num_rows > 0) {
     <h2> '.$row["heading"].'</h2>
     <h5>'.$row["street"].', '.$row["city"].', '.$row["state"].', '.$row["zip"].'</h5>
     <img style="height:250px; width: 350px;" src = "images/bedroom-1.jpg">
+    <div>
+    <button> Like ('.$row["likes"].')</button> 
+    <button> Dislikes ('.$row["dislike"].')</button>
+    <button style="color:red;"> Report </button>      
+    </div>
     <p><strong>Description</strong></p>
     <div> Price:  '.$row["price"].'</div>
     <div> Rating:  '.$row["rating"].'</div>
