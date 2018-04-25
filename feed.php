@@ -75,6 +75,7 @@ if ($result->num_rows > 0) {
     <div> Laundry:  '.$row["laundry"].'</div>
     <p></p>
     </div>';
+    
 
   }
 } else {
