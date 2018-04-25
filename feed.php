@@ -64,7 +64,7 @@ if ($result->num_rows > 0) {
     <div>
     <button> Like ('.$row["likes"].')</button> 
     <button> Dislikes ('.$row["dislike"].')</button>
-    <button style="color:red;"> Report </button>      
+    <button style="color:red; "> Report </button>      
     </div>
     <p><strong>Description</strong></p>
     <div> Price:  '.$row["price"].'</div>
