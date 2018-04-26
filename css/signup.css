@@ -9,7 +9,7 @@ body {
 #regForm {
   background-color: #ffffff;
   margin: 100px auto;
-  /*font-family: Raleway; */
+  font-family: Monospace; 
   padding: 40px;
   width: 70%;
   min-width: 300px;
@@ -23,7 +23,7 @@ input {
   padding: 10px;
   width: 100%;
   font-size: 17px;
-/*  font-family: Raleway;*/
+  font-family: monospace;
   border: 1px solid #aaaaaa;
 }
 
@@ -43,7 +43,7 @@ button {
   border: none;
   padding: 10px 20px;
   font-size: 17px;
-/*  font-family: Raleway;*/  
+  font-family: monospace;  
   cursor: pointer;
 }
 
