@@ -52,7 +52,7 @@ if(is_numeric($maxRange))
  $query .= " AND price <= $maxRange) ";
 
 
-
+//Retrieves Result
 $result = $conn->query($query);
 
 if ($result->num_rows > 0) {
