@@ -109,7 +109,7 @@ if(isset($_POST["search2"])){
 <div style="margin-top: 5px;">
 <form class="search" action="home.php" style="margin:auto;max-width:500px">
   <input id = "zip" type="text" placeholder="Enter ZIP.." name="search2">
-  <button style="font-size: 35px;" type = 'button' onclick = 'ajaxFunction(zip)' > GO </button>
+  <button style="font-size: 35px;" type = 'button' onclick = 'ajaxFunction("zip")' > GO </button>
 </form>
 </div>
 

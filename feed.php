@@ -18,6 +18,7 @@ switch ($code) {
         $minRange = $_GET['minRange'];
         break;
     default:
+    
         $stmt = $conn->prepare("SELECT  heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike from apartment");
 }
 
