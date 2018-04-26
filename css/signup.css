@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #f1f1f1;
+  background-color: #3498db;
 }
 
 #regForm {
@@ -11,7 +11,7 @@ body {
   margin: 100px auto;
   font-family: Monospace; 
   padding: 40px;
-  width: 70%;
+  width: 50%;
   min-width: 300px;
 }
 
@@ -21,7 +21,7 @@ h1 {
 
 input {
   padding: 10px;
-  width: 100%;
+  width: 80%;
   font-size: 17px;
   font-family: monospace;
   border: 1px solid #aaaaaa;
@@ -35,10 +35,12 @@ input.invalid {
 /* Hide all steps by default: */
 .tab {
   display: none;
+  text-align: center;
+  font-size: 20px;
 }
 
 button {
-  background-color: #4CAF50;
+  background-color: #3498db;
   color: #ffffff;
   border: none;
   padding: 10px 20px;
@@ -73,5 +75,5 @@ button:hover {
 
 /* Mark the steps that are finished and valid: */
 .step.finish {
-  background-color: #4CAF50;
+  background-color: #3498db;
 }
