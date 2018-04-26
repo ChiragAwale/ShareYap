@@ -12,8 +12,38 @@ session_start();
          
             //Browser Support Code
             function ajaxFunction(code){
+              var gobtn = document.getElementById("go-btn");
+              ///////////////////////// RANGE SLIDER SCRIPT //////////////////////////////
+              var slider1 = document.getElementById("minRange");
+              var output1 = document.getElementById("minRangeValue");
+              output1.innerHTML = slider1.value; // Display the default slider value
+
+              
+
+              // Update the current slider value (each time you drag the slider handle)
+              slider1.oninput = function() {
+                  output1.innerHTML = this.value;
+              }
+
+              var slider = document.getElementById("maxRange");
+              var output = document.getElementById("maxRangeValue");
+              output.innerHTML = slider.value; // Display the default slider value
+
+              // Update the current slider value (each time you drag the slider handle)
+              slider.oninput = function() {
+                                output.innerHTML = this.value;
+              }
+ 
+              //////////////////////////////////////////////////////////////////////////////
+              if(code == "zip"){
+                slider1.value = 0;
+                slider.value = 5000;
+                gobtn.innerHTML = "Reset";
+              }
+
+
              
-               var ajaxRequest;  // The variable that makes Ajax possible!
+               var ajaxRequest;  
                
                try {
                   // Opera 8.0+, Firefox, Safari
@@ -117,45 +147,44 @@ if(isset($_POST["search2"])){
 </div>
 
 
-<!-- Search Bar -->
-
-<div style="margin-top: 5px;">
-<form class="search" action="home.php" style="margin:auto;max-width:500px">
-  <input id = "zip" type="text" placeholder="Enter ZIP.." name="search2">
-  <button style="font-size: 35px;" type = 'button' onclick = 'ajaxFunction("zip")' > GO </button>
-</form>
-</div>
 
 
 
+
+
+
+
+<!-- LEFT COLUMN FILTER PANE -->
 
 <div class="row">
 
   <div class="leftcolumn">
     <div class="card">
       <h3>Filter results</h3>
+      <form class="search" action="home.php" style="margin:auto;max-width:500px">
+      <input id = "zip" type="text" placeholder="Enter ZIP.." name="search2">
+      </form>
+      <button id = "go-btn" style="font-size: 30px; margin: 5px;border-radius: 10px;" type = 'button' onclick = 'ajaxFunction("zip")' > GO </button>
+
       <h5>Price range</h5>
       
       <div class="slidecontainer">
-      <input type="range" min="1" max="4900" value="1" class="slider" id="minRange" onchange="ajaxFunction('minRange')">
+      <input type="range" min="0" max="4900" value="50" class="slider" id="minRange" step = "100" onchange="ajaxFunction('range')">
       </div>
-      <p>Min Price: <span id="demo1"></span></p>
+      <p>Min Price: <span id="minRangeValue">50</span></p>
 
       <div class="slidecontainer">
-      <input type="range" min="100" max="5000" value="5000" class="slider" id="maxRange" onchange="ajaxFunction('maxRange')">
+      <input type="range" min="100" max="5000" value="5000" class="slider" id="maxRange" step = "100" onchange="ajaxFunction('range')">
       </div>
-      <p>Max Price: <span id="demo2"></span></p>  
+      <p>Max Price: <span id="maxRangeValue">5000</span></p>  
       
-      
-      <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Number of bedrooms</button>
-        <div id="myDropdown" class="dropdown-content">
-        <a href="#">1 Bedroom</a>
-        <a href="#">2 Bedroom</a>
-        <a href="#">3 Bedroom</a>
-        <a href="#">4 Bedroom+</a>
-        </div>
-      </div>    
+      <p> Min No. of Bed Rooms: </p>
+      <select id="noOfBed" name="noOfBed" style="font-size: 20px;">
+          <option value="1">One Bed Room</option>
+          <option value="2">Two Bed Room</option>
+          <option value="3">Three Bed Room</option>
+          <option value="4">Four+ Bed Room</option>
+        </select>  
     </div>
   </div>
   	
@@ -166,7 +195,6 @@ if(isset($_POST["search2"])){
       <?php
         include 'feed.php';
       ?>
-
     </div>
 
 

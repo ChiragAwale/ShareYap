@@ -14,30 +14,9 @@ form.search input[type=text] {
 
 }
 
-form.search button {
 
-    float: left;
-    width: 24%;
-    margin-left: 4px; 
-    padding: 10px;
-    background: #2196F3;
-    color: white;
-    font-size: 35px;
-    border: 1px solid grey;
-    border-left: none;
-    cursor: pointer;
-    border-radius: 10px;
-}
 
-form.search button:hover {
-    background: #0b7dda;
-}
 
-form.search::after {
-    content: "";
-    clear: both;
-    display: table;
-}
 
 body {
     font-family: monospace;
@@ -47,11 +26,12 @@ body {
 
 }
 
+
 /* Header/Blog Title */
 .header {
     padding: 30px;
     text-align: center;
-    background: grey;
+    background: white;
 }
 
 .header h1 {
@@ -63,8 +43,9 @@ body {
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
+    background:  #008080;
     overflow: hidden;
-    background-color: #00c600;
+    background-color:  #008080;
 
 }
 
@@ -73,7 +54,7 @@ body {
     font-size: 30px;
     float: left;
     display: block;
-    color: black;
+    color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
