@@ -50,9 +50,20 @@ session_start();
                var zip = document.getElementById('zip').value;
                var minRange = document.getElementById('minRange').value;
                var maxRange = document.getElementById('maxRange').value;
+               
+                //If Empty Zip
+                if(zip == ""){
+                  code = "-1";
+                }
+
+               
                var queryString = "?code=" + code ;
-            
-               queryString += "&zip="+ zip+"&minRange=" + minRange + "&maxRange=" + maxRange;
+              
+
+             
+
+
+               queryString +="&zip="+ zip+ "&minRange=" + minRange + "&maxRange=" + maxRange;
                ajaxRequest.open("GET", "feed.php" + queryString, true);
                ajaxRequest.send(null); 
             }
