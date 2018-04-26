@@ -9,8 +9,9 @@ $sql = "SELECT heading, street, city, state , zip, price, photo  from apartment 
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
-       echo <img style="height:25px; width: 35px;" src = "'.$row["photo"].'">
-       $row['street'];
+       echo 
+       '<img style="height:50px; width: 65px;" src = "'.$row["photo"].'">';
+       //$row['street'];
     }  
 
 }
