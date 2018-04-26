@@ -42,17 +42,13 @@ switch ($code) {
         $stmt->bind_param("iii",$zip, $minRange,$maxRange);
         break;    
 
-    case "zip":
+        case "zip":
         $zip = $_GET['zip'];
         // prepare and bind
-<<<<<<< HEAD
-        $stmt = $conn->prepare("SELECT  heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike, photo from apartment WHERE zip = ?");
-=======
         $stmt = $conn->prepare("SELECT  aid,heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike, photo from apartment WHERE zip = ?");
->>>>>>> d8ca15926178793bc14cf1432934e53ea7bd4023
         $stmt->bind_param("i", $zip);
         break;    
-    default:
+        default:
         $stmt = $conn->prepare("SELECT  aid,heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike, photo from apartment");
 }
 
