@@ -36,7 +36,7 @@ session_start();
 <div class="row">
   <div class="midcolumn">
     <div class="card">
-      <h3>Your Applications</h3>
+      <h3>Your Apartments</h3>
       
     </div>
   </div>
@@ -50,6 +50,12 @@ session_start();
   </div>
 </div>
 
+<div class="row">
+  <div class="midcolumn">
+    <div class="card">
+      <?php
+      include 'dashboard_db.php'; 
+      ?>
 
 
 

@@ -41,7 +41,7 @@ switch ($code) {
     case "zip":
         $zip = $_GET['zip'];
         // prepare and bind
-        $stmt = $conn->prepare("SELECT  heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike, photofrom apartment WHERE zip = ?");
+        $stmt = $conn->prepare("SELECT  heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike, photo from apartment WHERE zip = ?");
         $stmt->bind_param("i", $zip);
         break;    
     default:
