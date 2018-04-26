@@ -12,6 +12,7 @@ session_start();
          
             //Browser Support Code
             function ajaxFunction(code){
+             
                var ajaxRequest;  // The variable that makes Ajax possible!
                
                try {
@@ -51,10 +52,11 @@ session_start();
                var minRange = document.getElementById('minRange').value;
                var maxRange = document.getElementById('maxRange').value;
                
-                //If Empty Zip
-                if(zip == ""){
-                  code = "-1";
-                }
+
+                // //If Empty Zip
+                // if(zip == ""){
+                //   code = "-1";
+                // }
 
                
                var queryString = "?code=" + code ;
@@ -135,12 +137,12 @@ if(isset($_POST["search2"])){
       <h5>Price range</h5>
       
       <div class="slidecontainer">
-      <input type="range" min="1" max="4900" value="1" class="slider" id="minRange">
+      <input type="range" min="1" max="4900" value="1" class="slider" id="minRange" onchange="ajaxFunction('minRange')">
       </div>
       <p>Min Price: <span id="demo1"></span></p>
 
       <div class="slidecontainer">
-      <input type="range" min="100" max="5000" value="100" class="slider" id="maxRange">
+      <input type="range" min="100" max="5000" value="5000" class="slider" id="maxRange" onchange="ajaxFunction('maxRange')">
       </div>
       <p>Max Price: <span id="demo2"></span></p>  
       
