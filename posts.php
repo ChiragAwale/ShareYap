@@ -12,7 +12,7 @@ $aid = $_GET['aid'];
 if($code == 1){ //CODE FOR LIKE
 $likes = $_GET['likes'];
 $sql = "UPDATE apartment SET likes='".$likes."' WHERE aid=".$aid;
-}else if ($code == 2){. //CODE FOR DISLIKE
+}else if ($code == 2){ //CODE FOR DISLIKE
 $dislikes = $_GET['dislikes'];
 $sql = "UPDATE apartment SET dislike='".$dislikes."' WHERE aid=".$aid;
 }
