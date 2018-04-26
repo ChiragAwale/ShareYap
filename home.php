@@ -6,12 +6,12 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<link href="css/home.css" rel='stylesheet' type='text/css'>
+<link href="css/home.css" rel='stylesheet' type='text/css'>
  
 <script language = "javascript" type = "text/javascript">
          
             //Browser Support Code
-            function ajaxFunction(){
+            function ajaxFunction(code){
                var ajaxRequest;  // The variable that makes Ajax possible!
                
                try {
@@ -50,9 +50,9 @@ session_start();
                var zip = document.getElementById('zip').value;
                var minRange = document.getElementById('minRange').value;
                var maxRange = document.getElementById('maxRange').value;
-               var queryString = "?zip=" + zip ;
+               var queryString = "?code=" + code ;
             
-               queryString +=  "&minRange=" + minRange + "&maxRange=" + maxRange;
+               queryString += "&zip="+ zip+"&minRange=" + minRange + "&maxRange=" + maxRange;
                ajaxRequest.open("GET", "feed.php" + queryString, true);
                ajaxRequest.send(null); 
             }
@@ -109,7 +109,7 @@ if(isset($_POST["search2"])){
 <div style="margin-top: 5px;">
 <form class="search" action="home.php" style="margin:auto;max-width:500px">
   <input id = "zip" type="text" placeholder="Enter ZIP.." name="search2">
-  <button style="font-size: 35px;" type = 'button' onclick = 'ajaxFunction()' > GO </button>
+  <button style="font-size: 35px;" type = 'button' onclick = 'ajaxFunction(zip)' > GO </button>
 </form>
 </div>
 
