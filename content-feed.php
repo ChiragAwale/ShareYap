@@ -16,7 +16,7 @@ while($row = $result->fetch_assoc()) {
     <img style="height:250px; width: 350px;" src = "'.$row["photo"].'">
     <div id = "'.$row["aid"].'">
     <button onclick = "clickFunction(1,'.$row["aid"].','.$row["likes"].')" value = "'.$row["likes"].'" type = "button"> Like ('.$row["likes"].')</button> 
-    <button> Dislikes ('.$row["dislike"].')</button>
+    <button onclick = "clickFunction(2,'.$row["aid"].','.$row["dislike"].')" value = "'.$row["dislike"].'" type = "button"> Dislike ('.$row["dislike"].')</button> 
     <button style="color:red; "> Report </button>      
     </div>
     <p><strong>Description</strong></p>

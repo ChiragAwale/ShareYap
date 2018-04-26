@@ -1,14 +1,24 @@
 <?php
 include 'db-connect.php';
 
-$likes = $_GET['likes'];
+$code = $_GET["code"];
 $aid = $_GET['aid'];
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //						FOR UPDATING DATABASE 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+if($code == 1){ //CODE FOR LIKE
+$likes = $_GET['likes'];
 $sql = "UPDATE apartment SET likes='".$likes."' WHERE aid=".$aid;
+}else if ($code == 2){. //CODE FOR DISLIKE
+$dislikes = $_GET['dislikes'];
+$sql = "UPDATE apartment SET dislike='".$dislikes."' WHERE aid=".$aid;
+}
+
+
+//Executes Statement
 $conn->query($sql); 
 
 
@@ -25,7 +35,7 @@ if ($result->num_rows > 0) {
        echo '
 
     <button  onclick = "clickFunction(1,'.$row["aid"].','.$row["likes"].')" value = "'.$row["likes"].'" type = "button"> Like ('.$row["likes"].')</button> 
-    <button> Dislikes ('.$row["dislike"].')</button>
+    <button onclick = "clickFunction(2,'.$row["aid"].','.$row["dislike"].')" value = "'.$row["dislike"].'" type = "button"> Dislike ('.$row["dislike"].')</button>
     <button style="color:red; "> Report </button>';
     }  
 
