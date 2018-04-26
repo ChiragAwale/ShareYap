@@ -1,4 +1,4 @@
-function clickFunction(tcode,aid,likes){
+function clickFunction(tcode,aid,count){
                
 
               var ajaxRequest;  
@@ -36,11 +36,19 @@ function clickFunction(tcode,aid,likes){
                // server script.
 
 
-              
-                var queryString = "?code=" + tcode + "&aid="+ aid;
+            
+               var queryString = "?code=" + tcode + "&aid="+ aid;
         
-               likes = likes + 1; 
-               queryString +="&likes="+ likes;
+               count = count + 1; 
+
+               if(tcode == 1){
+                queryString +="&likes="+ count;
+               }else if (tcode == 2){
+                queryString +="&dislikes="+ count;
+               }
+
+
+               
                ajaxRequest.open("GET", "posts.php" + queryString, true);
                ajaxRequest.send(null); 
 }
