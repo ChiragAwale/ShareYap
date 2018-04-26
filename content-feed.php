@@ -11,7 +11,7 @@ while($row = $result->fetch_assoc()) {
     echo '<div class="card-main">
     <h2> '.$row["heading"].'</h2>
     <h5>'.$row["street"].', '.$row["city"].', '.$row["state"].', '.$row["zip"].'</h5>
-    <img style="height:250px; width: 350px;" src = "images/bedroom-1.jpg">
+    <img style="height:250px; width: 350px;" src = "'.$row["photo"].'">
     <div>
     <button> Like ('.$row["likes"].')</button> 
     <button> Dislikes ('.$row["dislike"].')</button>

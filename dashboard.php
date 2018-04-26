@@ -28,10 +28,12 @@ session_start();
 </div>
 
 
+
+
+
+
+
 <div class="row">
-
-	
-
   <div class="midcolumn">
     <div class="card">
       <h3>Your Applications</h3>
@@ -44,12 +46,7 @@ session_start();
       <h3>Applications to your apartment</h3>
       
     </div>
-
-
   </div>
-
-
-
   </div>
 </div>
 
