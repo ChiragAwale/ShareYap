@@ -132,7 +132,7 @@ if(isset($_POST["search2"])){
 <!-- Nav Bar -->
 <div class="header">
   <h1>ShareYap</h1>
-  <h4>Share your appartment</h4>
+  <h4>Share Your Apartment</h4>
   <span style="float: right;">Welcome, 
     <?php 
     echo $_SESSION["username"];
