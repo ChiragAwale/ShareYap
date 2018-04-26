@@ -140,8 +140,8 @@ if(isset($_POST["search2"])){
 </div>
 
 <div class="topnav">
-  <a href="#">Home</a>
-  <a href="#">Dashboard</a>
+  <a href="home.php">Home</a>
+  <a href="dashboard.php">Dashboard</a>
   
   <a href="index.html/?=logout"  style="float:right"><span onclick="logout()">Logout</span></a>
 </div>
@@ -160,26 +160,28 @@ if(isset($_POST["search2"])){
 
   <div class="leftcolumn">
     <div class="card">
-      <h3>Filter results</h3>
+      <h2>Filter results</h2>
       <form class="search" action="home.php" style="margin:auto;max-width:500px">
       <input id = "zip" type="text" placeholder="Enter ZIP.." name="search2">
       </form>
       <button id = "go-btn" style="font-size: 30px; margin: 5px;border-radius: 10px;" type = 'button' onclick = 'ajaxFunction("zip")' > GO </button>
 
-      <h5>Price range</h5>
+      <p><h3><strong>Price range</strong></h3></p>
       
       <div class="slidecontainer">
       <input type="range" min="0" max="4900" value="50" class="slider" id="minRange" step = "100" onchange="ajaxFunction('range')">
       </div>
-      <p>Min Price: <span id="minRangeValue">50</span></p>
+      <p><strong>Min Price: </strong><span id="minRangeValue">50</span></p>
 
       <div class="slidecontainer">
       <input type="range" min="100" max="5000" value="5000" class="slider" id="maxRange" step = "100" onchange="ajaxFunction('range')">
       </div>
-      <p>Max Price: <span id="maxRangeValue">5000</span></p>  
+      <p><strong>Max Price:</strong> <span id="maxRangeValue">5000</span></p>  
       
-      <p> Min No. of Bed Rooms: </p>
+
+      <p><strong><h3> Min No. of Bed Rooms:</strong> </h3></p>
       <select id="noOfBed" name="noOfBed" style="font-size: 20px;">
+          <option value="1=0">Any</option>
           <option value="1">One Bed Room</option>
           <option value="2">Two Bed Room</option>
           <option value="3">Three Bed Room</option>
