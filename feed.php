@@ -2,6 +2,10 @@
 
 include 'db-connect.php';
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                      FOR ACTIONS ACCORDING TO USER ACTIONS 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 if(isset($_GET['code'])){
 $code = $_GET['code'];
 }else{
@@ -26,7 +30,7 @@ switch ($code) {
         $minRange = $_GET['minRange'];
         $maxRange = $_GET['maxRange'];
         // prepare and bind
-        $stmt = $conn->prepare("SELECT  heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike,photo from apartment WHERE (price  >= ? AND price <=?)");
+        $stmt = $conn->prepare("SELECT  aid,heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike,photo from apartment WHERE (price  >= ? AND price <=?)");
         $stmt->bind_param("ii", $minRange,$maxRange);
         break;
     case "zrange":
@@ -34,18 +38,22 @@ switch ($code) {
         $minRange = $_GET['minRange'];
         $maxRange = $_GET['maxRange'];
         // prepare and bind
-        $stmt = $conn->prepare("SELECT  heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike,photo from apartment WHERE (zip = ? AND price  >= ? AND price <=?)");
+        $stmt = $conn->prepare("SELECT  aid,heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike,photo from apartment WHERE (zip = ? AND price  >= ? AND price <=?)");
         $stmt->bind_param("iii",$zip, $minRange,$maxRange);
         break;    
 
     case "zip":
         $zip = $_GET['zip'];
         // prepare and bind
+<<<<<<< HEAD
         $stmt = $conn->prepare("SELECT  heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike, photo from apartment WHERE zip = ?");
+=======
+        $stmt = $conn->prepare("SELECT  aid,heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike, photo from apartment WHERE zip = ?");
+>>>>>>> d8ca15926178793bc14cf1432934e53ea7bd4023
         $stmt->bind_param("i", $zip);
         break;    
     default:
-        $stmt = $conn->prepare("SELECT  heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike, photo from apartment");
+        $stmt = $conn->prepare("SELECT  aid,heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike, photo from apartment");
 }
 
 
