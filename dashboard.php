@@ -7,6 +7,7 @@ session_start();
 <html>
 <head>
 <link href="css/home.css" rel='stylesheet' type='text/css'>
+<link href="css/dashboard.css" rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -36,7 +37,7 @@ session_start();
 <div class="row">
   <div class="midcolumn">
     <div class="card">
-      <h3>Your Apartments</h3>
+      <h3>Apartments you applied</h3>
       
     </div>
   </div>
@@ -56,6 +57,18 @@ session_start();
       <?php
       include 'dashboard_db.php'; 
       ?>
+    </div>
+  </div>
+
+   <div class="midcolumn">
+    <div class="card">
+      <?php
+      include 'dashboard_db2.php'; 
+      ?>
+    </div>
+  </div>
+</div>
+
 
 
 
