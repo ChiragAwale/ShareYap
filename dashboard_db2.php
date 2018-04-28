@@ -23,8 +23,8 @@ if ($result->num_rows > 0) {
     $result1 = $conn->query($sql1);
     if ($result1->num_rows > 0) {
     while($row1 = $result1->fetch_assoc()) {
-        echo '<br>'.$row1['username'];
-        echo '<a href="#"> Approve </a><a href="#"> Decline </a>';
+        echo '<br>'.$row1['username'].'   ';
+        echo '<span>&#10003;</span> '.'  '.'<span>&#10008;</span> ';
     }
 
   }
