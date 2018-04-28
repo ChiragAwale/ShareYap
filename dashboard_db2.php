@@ -3,9 +3,9 @@
 <?php
 	include 'db-connect.php';
 
-	$uname="smitshrestha101";
+	$uname=$_SESSION["username"];
 
-$sql = "SELECT aid, heading, street, city, state , zip, price, photo  from apartment WHERE AID IN (select AID from apply_apt where TID=1 and username='smitshrestha101')";
+$sql = 'SELECT aid, heading, street, city, state , zip, price, photo  from apartment WHERE AID IN (select AID from apply_apt where TID=1 and username="'.$_SESSION["username"].'")';
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
@@ -23,7 +23,8 @@ if ($result->num_rows > 0) {
     $result1 = $conn->query($sql1);
     if ($result1->num_rows > 0) {
     while($row1 = $result1->fetch_assoc()) {
-        echo $row1['username'];
+        echo '<br>'.$row1['username'];
+        echo '<a href="#"> Approve </a><a href="#"> Decline </a>';
     }
 
   }
