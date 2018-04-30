@@ -24,7 +24,7 @@ session_start();
 class="close" title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
-  <form class="modal-content animate" action="home.php" method="post">
+  <form class="modal-content animate" action="addapt_db.php" method="post">
   
     <div class="container-form">
       <label for="description"><b>Description</b></label>
