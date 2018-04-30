@@ -8,6 +8,11 @@ session_start();
 <head>
 <link href="css/home.css" rel='stylesheet' type='text/css'>
 <link href="css/dashboard.css" rel='stylesheet' type='text/css'>
+
+
+
+
+
 </head>
 
 <body>
@@ -37,14 +42,14 @@ session_start();
 <div class="row">
   <div class="midcolumn">
     <div class="card">
-      <h3>Apartments you applied</h3>
+      <h2>Apartments you applied</h2>
       
     </div>
   </div>
   	
   <div class="midcolumn" >
   	<div class="card">
-      <h3>Applications to your apartment</h3>
+      <h2>Applications to your apartment</h2>
       
     </div>
   </div>
@@ -53,31 +58,24 @@ session_start();
 
 <div class="row">
   <div class="midcolumn">
-    <div class="card">
+    
       <?php
       include 'dashboard_db.php'; 
+      //Code 0 for applied apartments
       ?>
-    </div>
+    
   </div>
 
    <div class="midcolumn">
-    <div class="card">
+   
       <?php
       include 'dashboard_db2.php'; 
+      //Code 1 for Posted apartments
       ?>
-    </div>
+    
   </div>
 </div>
 
-
-
-
-
-
-
-
-
+<script src = "js/dashboard.js"></script>
 </body>
-
-
 </html>
