@@ -8,13 +8,13 @@ $stmt->bind_param("ssssiiiis",$description,$street,$city,$state,$zip,$price,$bed
 
 
 
-$description=$_POST["heading"];
+$description=$_POST["description"];
 $street=$_POST["street"];
 $city=$_POST["city"];
 $state=$_POST["state"];
 $zip=$_POST["zip"];
-$bedroom=$_POST["NoOfBedroom"];
-$bath=$_POST["NoOfbaths"];
+$bedroom=$_POST["bedroom"];
+$bath=$_POST["bath"];
 $photo=$_POST["photo"];
 
 $stmt->execute();
