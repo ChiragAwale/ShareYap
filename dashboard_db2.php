@@ -5,7 +5,7 @@
 
 	$uname=$_SESSION["username"];
 
-$sql = 'SELECT aid, heading, street, city, state , zip, price, photo  from apartment WHERE AID IN (select AID from apply_apt where TID=1 and username="'.$_SESSION["username"].'")';
+$sql = 'SELECT aid, heading, street, city, state , zip, price, photo  from apartment WHERE delete_marker = 0 AND  AID IN (select AID from apply_apt where TID=1 and username="'.$_SESSION["username"].'")';
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {

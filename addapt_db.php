@@ -13,6 +13,7 @@ $street=$_POST["street"];
 $city=$_POST["city"];
 $state=$_POST["state"];
 $zip=$_POST["zip"];
+$price = $_POST["price"];
 $bedroom=$_POST["bedroom"];
 $bath=$_POST["bath"];
 $photo=$_POST["photo"];

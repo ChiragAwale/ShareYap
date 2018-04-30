@@ -161,15 +161,21 @@ border-radius: 125px;
     border-radius: 15px;
     opacity: 0.6;
     color: black;
+    font-size: 20px;
     padding: 14px 28px;
-    font-size: 40px;
+    margin: 2px;
     cursor: pointer;
     transition: transform .5s;
+    
 }
 
 .btn:hover {
     transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   
+}
+
+.postButton{
+    color: black;
 }
 
 /* Green */

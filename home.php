@@ -7,7 +7,7 @@ session_start();
 <html>
 <head>
 <link href="css/home.css" rel='stylesheet' type='text/css'>
- 
+<link href="css/index.css" rel='stylesheet' type='text/css'>
 </head>
 
 
@@ -32,6 +32,9 @@ if(isset($_POST["search2"])){
   echo "DONE".$_POST["search2"];
 }
 
+
+include 'check.php';
+
 ?>
 
 
@@ -48,13 +51,10 @@ if(isset($_POST["search2"])){
 <div class="topnav">
   <a href="home.php">Home</a>
   <a href="dashboard.php">Dashboard</a>
-  
-  <a href="index.html/?=logout"  style="float:right"><span onclick="logout()">Logout</span></a>
+  <a href="dashboard.php">Profile</a>
+  <button class="btn"  style="float:center" onclick="document.getElementById('lgn-mdl').style.display='block'">Post</button>
+  <a href="index.php"  style="float:right">Logout</a>
 </div>
-
-
-
-
 
 
 
@@ -131,6 +131,60 @@ if(isset($_POST["search2"])){
   </div>
 </div>
 
+<!-- ./...............................POST CODE.............................................................................. -->
+
+<!-- The Modal -->
+<div id="lgn-mdl" class="modal">
+  <span onclick="document.getElementById('lgn-mdl').style.display='none'" 
+class="close" title="Close Modal">&times;</span>
+
+  <!-- Modal Content -->
+  <form class="modal-content animate" action="addapt_db.php" method="post">
+  
+    <div class="container-form">
+      <label for="description"><b>Description</b></label>
+      <input type="text" placeholder="Describe your apt in a few words.." name="description" required>
+
+      <label for="street"><b>Street</b></label>
+      <input type="text" placeholder="Street address" name="street" required>
+
+      <label for="city"><b>City</b></label>
+      <input type="text" placeholder="City" name="city" required>
+
+      <label for="state"><b>State</b></label>
+      <input type="text" placeholder="State" name="state" required>
+
+      <label for="zip"><b>Zip</b></label>
+      <input type="text" placeholder="Zip" name="zip" required>
+
+      <label for="price"><b>Price</b></label>
+      <input type="text" placeholder="Price" name="price" required>
+
+      <label for="bedroom"><b>No. of Bedroom</b></label>
+      <input type="text" placeholder="Number of bedrooms" name="bedroom" required>
+
+      <label for="bath"><b>No. of Baths</b></label>
+      <input type="text" placeholder="Number of baths" name="bath" required>
+
+      <label for="photo"><b>Photo</b></label>
+      <input type="text" placeholder="Enter photo URL" name="photo" required>
+
+      <button class = "btn-lgn" type="submit">Post</button>
+      
+    </div>
+
+    <div class="container-form" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('lgn-mdl').style.display='none'" class="cancelbtn">Cancel</button>
+    
+    </div>
+  </form>
+</div>
+      <script>
+      // Get the modal
+      
+
+      </script>
+<!-- ................................................................................................................................................ -->
 
  <script src = "js/home.js"></script>
 

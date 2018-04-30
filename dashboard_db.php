@@ -5,15 +5,17 @@
 
 	$uname=$_SESSION["username"];
 
-$sql = 'SELECT heading, street, city, state , zip, price, photo,status  from apartment WHERE AID IN (select AID from apply_apt where TID=0 and username="'.$_SESSION["username"].'")';
+$sql = 'SELECT aid,heading, street, city, state , zip, price, photo,status  from apartment WHERE delete_marker = 0 AND AID IN (select AID from apply_apt where TID=0 and username="'.$_SESSION["username"].'")';
 
 
 
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
+    $aid = $row["aid"];
+    $sql1 = 'SELECT app_status from apply_apt where TID=0 and username="'.$uname.'" and aid = '. $aid;
     
-    $sql1 = 'SELECT app_status from apply_apt where TID=0 and username="'.$uname.'"';
+
     $result1 = $conn->query($sql1);
 
     if ($result1->num_rows > 0) {

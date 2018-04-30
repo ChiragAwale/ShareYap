@@ -29,8 +29,8 @@ session_start();
 <div class="topnav">
   <a href="home.php">Home</a>
   <a href="dashboard.php">Dashboard</a>
-  
-  <a href="index.html/?=logout"  style="float:right"><span onclick="logout()">Logout</span></a>
+  <a href="dashboard.php">Profile</a>
+  <a href="index.php"  style="float:right">Logout</a>
 </div>
 
 
@@ -61,7 +61,7 @@ session_start();
     
       <?php
       include 'dashboard_db.php'; 
-      //Code 0 for applied apartments
+      //Code 0 for applieds apartments
       ?>
     
   </div>

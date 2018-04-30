@@ -30,7 +30,7 @@ switch ($code) {
         $minRange = $_GET['minRange'];
         $maxRange = $_GET['maxRange'];
         // prepare and bind
-        $stmt = $conn->prepare("SELECT  aid,heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike,photo from apartment WHERE (price  >= ? AND price <=?)");
+        $stmt = $conn->prepare("SELECT  aid,heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike,photo,report from apartment WHERE delete_marker = 0 AND (price  >= ? AND price <=?)");
         $stmt->bind_param("ii", $minRange,$maxRange);
         break;
     case "zrange":
@@ -38,18 +38,18 @@ switch ($code) {
         $minRange = $_GET['minRange'];
         $maxRange = $_GET['maxRange'];
         // prepare and bind
-        $stmt = $conn->prepare("SELECT  aid,heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike,photo from apartment WHERE (zip = ? AND price  >= ? AND price <=?)");
+        $stmt = $conn->prepare("SELECT  aid,heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike,photo,report from apartment WHERE delete_marker = 0 AND (zip = ? AND price  >= ? AND price <=?)");
         $stmt->bind_param("iii",$zip, $minRange,$maxRange);
         break;    
 
         case "zip":
         $zip = $_GET['zip'];
         // prepare and bind
-        $stmt = $conn->prepare("SELECT  aid,heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike, photo from apartment WHERE zip = ?");
+        $stmt = $conn->prepare("SELECT  aid,heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike, photo, report from apartment WHERE delete_marker = 0 AND zip = ?");
         $stmt->bind_param("i", $zip);
         break;    
         default:
-        $stmt = $conn->prepare("SELECT  aid,heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike, photo from apartment");
+        $stmt = $conn->prepare("SELECT  aid,heading, street, city,state,zip,price,rating,noofbedroom,noofbaths,gender,pets,laundry,likes,dislike, photo, report from apartment WHERE delete_marker = 0");
 }
 
 
