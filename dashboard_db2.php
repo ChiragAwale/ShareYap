@@ -32,12 +32,12 @@ if ($result->num_rows > 0) {
 
         echo '<br>'.$row1['username'].'   ';
         if($app_status == 0){
-        echo '<div id="ajaxDiv" >';
+        echo '<div id="'.$row1['username'].$row1['aid'].'" >';
         echo '<button class = "status" onclick ="'.$aonclick;
         echo '">Approve<span>&#10003;</span></button>';
 
         echo '<button onclick ="'.$donclick;
-        echo '">Reject<span>&#10008;</span></button></div> </div>';
+        echo '">Reject<span>&#10008;</span></button></div>';
         } else if ($app_status == 1){
           echo "Approved";
 

@@ -25,14 +25,15 @@ function clickFunction(code,aid,username){
                // Create a function that will receive data 
                // sent from the server and will update
                // div section in the same page.
-          
+               var divcode = username+""+aid;
                ajaxRequest.onreadystatechange = function(){
                   if(ajaxRequest.readyState == 4){
-                     var ajaxDisplay = document.getElementById("ajaxDiv");
+                     var ajaxDisplay = document.getElementById(divcode);
                      ajaxDisplay.innerHTML = ajaxRequest.responseText;
                   }
                }
-               
+
+     
                // Now get the value from user and pass it to
                // server script.
 

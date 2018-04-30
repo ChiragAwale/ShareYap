@@ -1,4 +1,7 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 include 'db-connect.php';
 
@@ -20,6 +23,15 @@ $photo=$_POST["photo"];
 
 $stmt->execute();
 
+$last_id = $conn->insert_id;
+$username = $_SESSION["username"];
+$sql = "INSERT INTO apply_apt (aid, username, tid) VALUES (".$last_id.",'".$username."', 1)";
+
+//Executes Statement
+$conn->query($sql); 
+
+
+
 
 
 header('Location: home.php');
@@ -27,6 +39,8 @@ header('Location: home.php');
 // echo "<h1>New records created successfully</h1>;"
 
 $stmt->close();
+
+
 $conn->close();
 
 

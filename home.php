@@ -32,7 +32,7 @@ if(isset($_POST["search2"])){
   echo "DONE".$_POST["search2"];
 }
 
-
+//Checks for old posts and high reported posts and deletes them
 include 'check.php';
 
 ?>
