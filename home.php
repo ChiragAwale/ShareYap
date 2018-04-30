@@ -134,7 +134,5 @@ if(isset($_POST["search2"])){
 
  <script src = "js/home.js"></script>
 
-
- </script>
 </body>
 </html>
