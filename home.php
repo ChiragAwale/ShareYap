@@ -120,9 +120,13 @@ include 'check.php';
     </div> -->
     <div class="card">
       <h3>Popular Posts</h3>
-      <div class="fakeimg"><p>N/A</p></div>
-      <div class="fakeimg"><p>N/A</p></div>
-      <div class="fakeimg"><p>N/A</p></div>
+      <?php
+        include 'popularpost.php';
+        
+
+
+      ?>
+ 
     </div>
     <!-- <div class="card">
       <h3>Follow Me</h3>
