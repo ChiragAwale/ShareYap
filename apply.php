@@ -5,17 +5,37 @@ include 'db-connect.php';
 
 $aid = $_GET["aid"];
 $username = $_SESSION["username"];
-
+$bool = 0;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //						FOR UPDATING DATABASE 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//Checks if user is the one who posted the apartment
+$sql_search = "SELECT aid,tid,username from apply_apt where username = '".$username."'";
+$result_search = $conn->query($sql_search);
+if ($result_search->num_rows > 0) {
+        while($row = $result_search->fetch_assoc()) {
+            $said = $row["aid"];
+            $stid = $row["tid"];
+            if($said == $aid){
+                if($stid == 1){
+                    $bool = 1;
+                }
+            }
+        }
+
+    }
+
+
+
+
+if($bool != 1){
 $sql = "INSERT INTO apply_apt (aid, username, tid) VALUES (".$aid.",'".$username."', 0)";
 
 //Executes Statement
 $conn->query($sql); 
-
+}
 
 
 

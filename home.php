@@ -51,7 +51,7 @@ include 'check.php';
 <div class="topnav">
   <a href="home.php">Home</a>
   <a href="dashboard.php">Dashboard</a>
-  <a href="dashboard.php">Profile</a>
+  <a href="profile.php">Profile</a>
   <button class="btn"  style="float:center" onclick="document.getElementById('lgn-mdl').style.display='block'">Post</button>
   <a href="index.php"  style="float:right">Logout</a>
 </div>
@@ -88,10 +88,10 @@ include 'check.php';
       <p><strong><h3> Min No. of Bed Rooms:</strong> </h3></p>
       <select id="noOfBed" name="noOfBed" style="font-size: 20px;">
           <option value="1=0">Any</option>
-          <option value="1">One Bed Room</option>
-          <option value="2">Two Bed Room</option>
-          <option value="3">Three Bed Room</option>
-          <option value="4">Four+ Bed Room</option>
+          <option value="2">One Bed Room</option>
+          <option value="3">Two Bed Room</option>
+          <option value="4">Three Bed Room</option>
+          <option value="5">Four+ Bed Room</option>
         </select>  
     </div>
   </div>
