@@ -1,7 +1,5 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+
 include 'db-connect.php';
 
 $sql_search = "SELECT fname,lname,dob,email,phone,address from user where username = '".$username."'";

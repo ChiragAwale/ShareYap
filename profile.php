@@ -17,21 +17,22 @@ session_start();
   <span style="float: right;">Welcome, 
     <?php 
     echo $_SESSION["username"];
+    $uname = $_SESSION["username"];
     ?></span>
 </div>
 
 <div class="topnav">
   <a href="home.php">Home</a>
   <a href="dashboard.php">Dashboard</a>
-  <a href="profile.php">Profile</a>
+  <?php echo '<a href="profile.php?username='. $uname.'"'; ?>>Profile</a>
   <a href="index.php"  style="float:right">Logout</a>
 </div>
 
 <?php
 
 include 'db-connect.php';
-$username = $_SESSION["username"];
-$sql_search = "SELECT fname,lname,dob,email,phone,address from user where username = '".$username."'";
+$username = $_GET["username"];
+$sql_search = "SELECT fname,lname,dob,email,phone,address,rating from user where username = '".$username."'";
 
 $result_search = $conn->query($sql_search);
 if ($result_search->num_rows > 0) {
@@ -42,6 +43,7 @@ if ($result_search->num_rows > 0) {
             $dob = $row["dob"];
             $phone = $row["phone"];
             $address= $row["address"];
+            $rating = $row["rating"];
 
             echo '<div class = "row">
                   <div class="midcolumn" >
@@ -54,6 +56,7 @@ if ($result_search->num_rows > 0) {
                       <div ><p><strong>Dob:</strong>'.$dob.'</p></div>
                       <div ><p><strong>Phone:</strong>'.$phone.'</p></div>  
                       <div ><p><strong>Address:</strong>'.$address.'</p></div> 
+                      <div ><p><strong>Rating:</strong>'.$rating.'</p></div> 
                     </div>
 
 

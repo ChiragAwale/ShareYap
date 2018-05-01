@@ -30,7 +30,7 @@ if ($result->num_rows > 0) {
         $donclick = "clickFunction(2,".$row1["aid"].",'".$row1["username"]."')";
 
 
-        echo '<br><strong>'.$row1['username'].':</strong>  ';
+        echo '<br><a href = "profile.php?username='.$row1['username'].'"><strong>'.$row1['username'].':</strong></a> ';
         if($app_status == 0){
         echo '<div id="'.$row1['username'].$row1['aid'].'" >';
         echo '<button class = "status" onclick ="'.$aonclick;

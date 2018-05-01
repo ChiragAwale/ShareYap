@@ -23,13 +23,14 @@ session_start();
   <span style="float: right;">Welcome, 
     <?php 
     echo $_SESSION["username"];
+    $uname = $_SESSION["username"]
     ?></span>
 </div>
 
 <div class="topnav">
   <a href="home.php">Home</a>
   <a href="dashboard.php">Dashboard</a>
-  <a href="profile.php">Profile</a>
+  <?php echo '<a href="profile.php?username='. $uname.'"'; ?>>Profile</a>
   <a href="index.php"  style="float:right">Logout</a>
 </div>
 

@@ -31,7 +31,7 @@ $_SESSION["username"] = $_POST["uname"];
 if(isset($_POST["search2"])){
   echo "DONE".$_POST["search2"];
 }
-
+$uname = $_SESSION["username"];
 //Checks for old posts and high reported posts and deletes them
 include 'check.php';
 
@@ -51,7 +51,7 @@ include 'check.php';
 <div class="topnav">
   <a href="home.php">Home</a>
   <a href="dashboard.php">Dashboard</a>
-  <a href="profile.php">Profile</a>
+  <?php echo '<a href="profile.php?username='. $uname.'"'; ?>>Profile</a>
   <button class="btn"  style="float:center" onclick="document.getElementById('lgn-mdl').style.display='block'">Post</button>
   <a href="index.php"  style="float:right">Logout</a>
 </div>
